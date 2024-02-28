@@ -5,8 +5,8 @@
   hosts: home-node
   gather_facts: yes
   roles:
-    - role: nginx-python-test
-      tags: 'nginx-python-test'
+    - role: nginx-pci
+      tags: 'nginx-pci'
 
     - role: basic-setup
       tags: 'basic-setup'
