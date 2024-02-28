@@ -1,0 +1,10 @@
+---
+# tasks file for basic-setup
+
+- name: Install basic packages
+  apt:
+    name:
+      - net-tools
+      - curl
+    update_cache: true
+    state: latest

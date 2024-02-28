@@ -1,0 +1,41 @@
+---
+# tasks file for nginx-python-test
+
+#- name: Running the main tasks file
+  #  hosts: home-node
+  
+# tasks:
+- name: Install nginx
+  apt:
+    name: nginx
+    update_cache: true
+    state: latest
+
+- name: make sure needed directories are present
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "/etc/nginx/certs"
+    - "/etc/nginx/sites-available"
+    - "/var/www/html"
+
+- name: copy certificates
+  copy:
+    src: "{{ item }}"
+    dest: /etc/nginx/certs
+  with_items: 
+    - "nginx-selfsigned.crt"
+    - "nginx-selfsigned.key"
+
+- name: copy nginx.conf
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: reload nginx
+
+- name: copy default vhost config
+  copy:
+    src: default
+    dest: /etc/nginx/sites-available/default
+  notify: reload nginx

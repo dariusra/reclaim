@@ -1,0 +1,12 @@
+---
+# playbook.yml
+
+- name: Playbook for nginx-python-test
+  hosts: home-node
+  gather_facts: yes
+  roles:
+    - role: nginx-python-test
+      tags: 'nginx-python-test'
+
+    - role: basic-setup
+      tags: 'basic-setup'
