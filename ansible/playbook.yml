@@ -10,3 +10,6 @@
 
     - role: basic-setup
       tags: 'basic-setup'
+
+    - role: aws-ip-range
+      tags: 'aws-ip-range'
