@@ -6,5 +6,6 @@
     name:
       - net-tools
       - curl
+      - python3-pip
     update_cache: true
     state: latest
