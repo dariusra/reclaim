@@ -1,0 +1,12 @@
+[Unit]
+Description=My Flask App for displaying wanted AWS IP ranges
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/aws-ip-range
+ExecStart=/usr/bin/python3 /opt/aws-ip-range/aws-ip-range.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

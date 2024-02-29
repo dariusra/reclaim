@@ -1,0 +1,25 @@
+---
+# tasks file for aws-ip-range
+- name: install required python packages
+  pip:
+    name:
+      - Flask
+      - requests
+
+- name: Ensure the necessary directory exists for our python app
+  file: 
+    path: /opt/aws-ip-range
+    state: directory
+
+- name: Install aws-ip-range python app & index file
+  copy:
+    src: "{{ item }}"
+    dest: /opt/aws-ip-range
+  with_items:
+      - "aws-ip-range.py"
+      - "index.html"
+
+- name: Install service file for the aws-ip-range app
+  copy:
+    src: aws-ip-range.service
+    dest: /etc/systemd/system/aws-ip-range.service
