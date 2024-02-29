@@ -23,3 +23,8 @@
   copy:
     src: aws-ip-range.service
     dest: /etc/systemd/system/aws-ip-range.service
+
+- name: Start aws-ip-range service
+  service:
+    name: aws-ip-range
+    state: started
