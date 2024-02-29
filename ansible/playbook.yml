@@ -5,11 +5,11 @@
   hosts: home-node
   gather_facts: yes
   roles:
-    - role: nginx-pci
-      tags: 'nginx-pci'
-
     - role: basic-setup
       tags: 'basic-setup'
+
+    - role: nginx-pci
+      tags: 'nginx-pci'
 
     - role: aws-ip-range
       tags: 'aws-ip-range'
