@@ -12,5 +12,6 @@
       - net-tools
       - curl
       - python3-pip
+      - whois
     update_cache: true
     state: latest
