@@ -1,5 +1,10 @@
 ---
 # tasks file for basic-setup
+- name: Upgrade all packages
+  apt:
+    upgrade: yes
+    autoclean: yes
+    update_cache: true
 
 - name: Install basic packages
   apt:
